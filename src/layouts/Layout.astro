@@ -1,22 +1,70 @@
+---
+import "../assets/reset.css";
+import "../../public/chicken.jpg";
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/chicken.jpg" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <meta name="generator" content="{Astro.generator}" />
+    <title>Test Astro</title>
+  </head>
+  <style>
+    .container__footer {
+      width: 100%;
+      height: 40px;
+      background-color: black;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .container__footer--title {
+      color: white;
+      font-size: 1.5rem;
+    }
+    .fa-list {
+      font-size: 1.5rem;
+      color: white;
+    }
+    .fa-list:hover {
+      border: 2px solid rgb(129, 129, 125);
+      border-radius: 5px;
+    }
+    ul {
+      width: 100px;
+      background-color: blue;
+    }
+    #con:checked ~ .conga {
+      background-color: red;
+    }
+  </style>
+  <body>
+    <footer>
+      <div class="container__footer">
+        <div class="container__footer--title">Start Bootstrap</div>
+        <div>
+          <i class="fa-solid fa-list" id="con"></i>
+        </div>
+      </div>
+      <div>
+        <label for="con"></label>
+        <ul class="conga">
+          <li>1</li>
+          <li></li>
+          <li>1</li>
+        </ul>
+      </div>
+    </footer>
+    <slot />
+  </body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

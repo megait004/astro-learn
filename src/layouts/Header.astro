@@ -1,0 +1,118 @@
+---
+import "../assets/reset.css";
+import "../../public/chicken.jpg";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/chicken.jpg" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <meta name="generator" content="{Astro.generator}" />
+    <title>Test Astro</title>
+  </head>
+  <style>
+    @media (width <=48rem) {
+      .container__header {
+        width: 100%;
+        height: 40px;
+        background-color: black;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .container__header--title {
+        color: white;
+        font-size: 1.5rem;
+      }
+      .fa-list {
+        font-size: 1.5rem;
+        color: white;
+      }
+      .fa-list:hover {
+        border: 2px solid rgb(129, 129, 125);
+        border-radius: 5px;
+      }
+      ul {
+        background-color: black;
+        color: white;
+      }
+      .list--detail {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        position: absolute;
+        left: 0;
+        top: 39px;
+        width: 100%;
+        height: 100px;
+      }
+      .list--detail li {
+        margin-left: 60px;
+        padding-top: 5px;
+        font-size: 1rem;
+        font-weight: bold;
+      }
+      #list:checked ~ .list--detail {
+        transition: 1.5s;
+        opacity: 100;
+      }
+      #list:not(:checked) ~ .list--detail {
+        transition: 1.5s;
+        opacity: 0;
+      }
+    }
+    @media (width >= 48rem) {
+      .container__header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 40px;
+        background-color: black;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        z-index: 1000;
+      }
+      .container__header--title {
+        color: white;
+        font-size: 1.5rem;
+      }
+      .fa-list {
+        display: none;
+      }
+      .conga ul {
+        display: flex;
+        gap: 20px;
+      }
+      .conga li {
+        color: white;
+      }
+    }
+  </style>
+  <body>
+    <header>
+      <div class="container__header">
+        <div class="container__header--title">Start Bootstrap</div>
+        <div class="conga">
+          <label for="list"><i class="fa-solid fa-list"></i></label>
+          <input type="checkbox" name="list" id="list" hidden />
+          <ul class="list--detail">
+            <li>About</li>
+            <li>Service</li>
+            <li>Contact</li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <slot />
+  </body>
+</html>
